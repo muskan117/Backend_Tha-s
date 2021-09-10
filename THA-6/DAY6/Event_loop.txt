@@ -1,0 +1,47 @@
+** 
+- Javascript was made to run on the browsers and also it do not utilise full performance of the system and also developers can not perform multi threading.
+- So, to make the Javascript utilise the full performance of the system NodeJs comes into picture.
+- NodeJs was made to run on the system and work like other programming languages i.e Java.
+- With the help of NodeJS the developers can opt multi-threading technique to make javascript performant.
+- So, Event loops comes into picture.
+**
+
+<------------------------------------------------------------------------------------------------------------------------------------->
+
+# EVENT LOOP...
+
+    - Event is an algorithm that handles the Async nature of javascript.
+    - Async Nature: When the light tasks are executed first and the heavy tasks are at halt. This is done to overcome the latency in execution of other programs.
+
+# WHAT IS JAVASCRIPT? HOW IT WORKS?
+
+1. JAVASCRIPT
+
+    - A ..SINGLE-THREADED ..NON-BLOCKING ..ASYNCHRONOUS ..CONCURRENT language.
+        ~ Single-threaded: which means only one statement is executed at a time.
+        ~ Non-blocking: Port execution will not be blocked.
+        ~ ASYNCHRONOUS: Asynchronous (or async) execution refers to execution that doesn’t run in the sequence it appears in the code.
+                        In async programming the program doesn’t wait for the task to complete and can move on to the next task.
+        ~ CONCURRENT: Javascript can work parallely. Since it is single threaded, it is concurrent.
+
+    - Javacript have a ..CALL-STACK ..AN EVENT LOOP ..A CALLBACK QUEUE ..SOME OTHER APIs and stuff.
+    - In a nutshell, the asynchronous implementation in Javascript is done through a call stack, call back queue and Web API and event loop.
+        ~ call-stack: Call stack job as we seen earlier is to check what instruction is at the top of the stack and execute it.
+                      If there is an instruction like setTimeout() that requires extra time to execute then call stack will pop that out and send it to Web API.
+        ~ event loop: The job of event loop is to continuously check if an event occurred, like mouse click or keyboard stroke so that it can send that to call stack.
+                     Of course, your mouse click will be given higher priority for execution than an image load.
+        ~ Web api: In Javascript, All instructions are put on a call stack.
+                  When the stack arrives at setTimeout, the engine sees it as a Web API instruction and pops it out and sends it to Web API.
+                  Once the Web API is done with the execution, it will arrive at the call back queue.
+        ~ call back queue: The engine checks if the call stack is empty. If it is empty, then we check callback queue which has the instruction setTimeout in it.
+                          The callback queue sends it to call back stack and the instruction is executed.
+
+    - Javacript have Event loop, callback Queue and web apis and V8 engine contain call stack and heap.~
+
+    - The benefit of this procedure is JavaScript need not worry about how many cores or nodes a CPU is running on. There is only single call stack for this implementation.
+
+# V8 engine
+
+    - V8 engine is just a compiler which was developed by Google just to compile javascript in a very fast manner.
+    - V8 engine has ..CALL STACK ..HEAP only
+

@@ -1,0 +1,106 @@
+** BASIC COMMAND USED IN CRUD IS LISTED BELOW **
+
+# Firstly, we have to import the library called "fs" (File System)...
+
+    - The Node.js file system module allows you to work with the file system on your computer.
+    - To include the File System module, use the require() method:
+        var fs = require('fs');
+    - Common use for the File System module:
+        ~ Read files
+        ~ Create files
+        ~ Update files
+        ~ Delete files
+        ~ Rename files
+
+
+# To create a folder with the help of Node.js in terminal...
+
+    - After importing fs module:
+
+        fs.mkdirSync("DAY5");  -- This will create the folder name DAY5
+
+# To Create a file inside the folder we have made:
+
+    - Create a new file using the writeFile() method:
+
+        var fs = require('fs');
+
+        fs.writeFile('DAY5/node_basics.text', 'Hello content!(this we will be wriiten inside the file)', (If error occur)function (err) {
+        if (err) throw err;
+        console.log('Saved!');
+        });
+
+# To append something in the file you have created(at the end it will be appended)...
+
+    - The fs.appendFile() method appends the specified content at the end of the specified file:
+        fs.appendFileSync("DAY5/hello.txt", " Saini");  -- This will append the hello.txt file
+
+# To read the file (important)...
+
+    - To open a file in read mode, we have to face some issue called buffer.
+    - When a file is opened in read mode, the data is printed in decimal format which is not easy to understand by human beings.
+    - This happen because if we have a file for eg. 2GB, then it is impossible to read a file in buffer format. This happen to  increase the performance of the system.
+    - In Sync mode, untill the file is not completely iterated till the end, the data is not printed. (About Sync)
+    - So, to make a file readable, we use "UTF-8" as a paramater which convert buffer to a string format.
+
+    - The fs.readFile() method read the specified file:
+
+        fs.readFileSync("DAY5/hello.txt","UTF-8");
+
+    - As it is giving a string, then we can store the string value in some variable:
+
+        var data =  fs.readFileSync("DAY5/hello.txt","UTF-8");
+        console.log(data)  --this will print the data written in the file
+
+# To rename a file with the File System module,  use the fs.rename() method.
+
+    - The fs.rename() method renames the specified file:
+
+         fs.renameSync("DAY5/hello.txt" , "DAY5/hello2.txt");  --This will change the name from "hello.txt" -> "hello2.txt"
+
+# To delete a file with the File System module,  use the fs.unlink() method.
+
+    - The fs.unlink() method deletes the specified file:
+
+        fs.unlinkSync("DAY5/hello2.txt");
+
+    - The folder can not be deleted untill the file inside the folder is deleted/unlinked.
+
+        fs.rmdirSync("DAY5");
+
+# To exit nodejs terminal:
+
+    - .exit
+
+<--------------------------------This method is known as REPL(READ,EXECUTE,PRINT,LOOP) Method------------------------------------------>
+
+For eg. 1+1 = 2 -- First it will read it, then execute ,then print 2 and then will loop it to the next line to write the next COMMAND
+
+<-------------------------------------------------------------------------------------------------------------------------------------->
+
+** IT IS NOT POSSIBLE TO MAINTAIN MULTIPLE FILES IN REPL, SO WE CAN CREATE A FILE AND WE CAN EXECUTE IT WITH THE HELP OF NODE AS GIVEN BELOW**
+
+# To create a folder and writting commands used in REPL...
+
+    - Create a file named index.js(any name).
+    - Write the commands in the file index.js used in REPL:
+        var fs = require("fs");
+        fs.mkdirSync("DAY6");
+        fs.writeFileSync("DAY6/hello.txt","hello");  --Write all the commands used in REPL
+    - Run the file in the terminal using node as:
+        node index.js  -- This will execute the file and create a new folder and a file inside it
+
+# Working of require keyword & Export...
+
+    - To implement it we have to make two files .i.e require.js & require_file.js  --Code is inside this two files
+    - What is require?
+        Require means, jo code humari dusri file mei h usse ek variable mei dalkr we can use it in other files.
+    - Example is given in require.js & require_file.js
+    - What if we do not use require?
+        ~ To demostrate it, i have made without_require.js file.
+        ~ If we do not use require, it will be difficult to use the code which is written in other file to use it in multiple files.
+
+<------------------------------------------------------------------------------------------------------------------------------------>
+
+* JS does not have access to our computers. It's access is limited to the browser only.
+* Nodejs has access to the computer and it can create folder,files / read & write inside them and also can delete them.
